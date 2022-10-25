@@ -1,5 +1,0 @@
-name: CodewizClassRegions
-version: '${version}'
-main: com.smartkids.codewizclassregions.CodewizClassRegions
-api-version: 1.19
-authors: [ Ohad, Clayton, Marcus ]
