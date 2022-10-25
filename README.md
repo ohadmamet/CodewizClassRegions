@@ -12,17 +12,17 @@ JSON Template for storing towns
    regions:
       {
          pooptown: {
-            location: (x,y),
-            owner: UUID,
-            creationDate,
-            lastWarped,
+            "location": (x,y,z),
+            "owner": UUID,
+            "creationDate": TIME,
+            "lastWarped": TIME,
             ...
          },
          othertown: {
-            location: (x,y),
-            owner: UUID,
-            creationDate,
-            lastWarped,
+            "location": (x,y,z),
+            "owner": UUID,
+            "creationDate": TIME,
+            "lastWarped": TIME,
             ...
          }
       }
