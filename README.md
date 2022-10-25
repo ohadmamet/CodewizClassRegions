@@ -1,4 +1,10 @@
 
+# tasks
+- Make gameprofiles change between regions (Ohad)
+- Make new worldgaurd region when newtown command is run
+- setclass player join server listener
+- gradle build pipleline to reload plugin on server after build artifacts
+
 
 # comands
 
