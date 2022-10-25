@@ -6,6 +6,29 @@
 - gradle build pipleline to reload plugin on server after build artifacts
 
 
+JSON Template for storing towns
+```json
+{
+   regions:
+      {
+         pooptown: {
+            location: (x,y),
+            owner: UUID,
+            creationDate,
+            lastWarped,
+            ...
+         },
+         othertown: {
+            location: (x,y),
+            owner: UUID,
+            creationDate,
+            lastWarped,
+            ...
+         }
+      }
+}
+```
+
 # comands
 
 * /newtown
