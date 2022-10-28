@@ -1,9 +1,14 @@
+
 plugins {
     id 'java'
 }
 
 group = 'com.smartkids'
 version = '1.0-SNAPSHOT'
+
+// server settings
+def remoteServerLoc = "$buildDir/../../Server"
+def serverFile = "paper-1.19.2-237.jar"
 
 repositories {
     mavenCentral()
@@ -55,4 +60,29 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
+}
+
+tasks.register("removeOld", Delete) {
+  delete remoteServerLoc + "/plugins/" + rootProject.name+"-"+ version+".jar"
+}
+
+tasks.register("copyBuild",Copy) {
+  dependsOn("build")
+  dependsOn("removeOld")
+  from "$buildDir/libs/"+rootProject.name+"-"+version+".jar"
+  into remoteServerLoc+"/plugins"
+} 
+
+tasks.register("UpdateServer") {
+  dependsOn("copyBuild")
+  //todo - be more specific
+  println("")
+  println(new String((char) 27) + "[31m" + "---Please run 'plugman load CodewizClassRegions' on server!---" + new String((char) 27) + "[0m");
+}
+
+
+tasks.register("RunServer",Exec) {
+  dependsOn("copyBuild")
+  workingDir remoteServerLoc
+  commandLine "java", "-jar", serverFile
 }
