@@ -77,7 +77,7 @@ tasks.register("UpdateServer") {
   dependsOn("copyBuild")
   //todo - be more specific
   println("")
-  println(new String((char) 27) + "[31m" + "---Please run 'plugman load CodewizClassRegions' on server!---" + new String((char) 27) + "[0m");
+  println(new String((char) 27) + "[31m" + "---Please run 'plugman reload CodewizClassRegions' on server!---" + new String((char) 27) + "[0m");
 }
 
 
