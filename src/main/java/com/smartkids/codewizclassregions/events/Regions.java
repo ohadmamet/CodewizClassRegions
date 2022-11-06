@@ -7,10 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import com.google.common.io.FileWriteMode;
 
 
 public class Regions implements Listener{
@@ -32,22 +30,36 @@ public Regions(){}
      * @param event event object for when the player joins the server
      * */    
     @EventHandler
+    @SuppressWarnings("unchecked")
     public void onPlayerJoin(PlayerJoinEvent event){
         JSONObject obj = new JSONObject();
         //JSONArray  arr = new JSONArray();
-        Player plr = event.getPlayer();
+        //Player plr = event.getPlayer(); I guess dont do this because it returns broken json
         
         obj.put("Town name", "test town");
-        obj.put(plr.name(), plr.getUniqueId());
+        obj.put(event.getPlayer().getName(), event.getPlayer().getUniqueId());
         
-        try (FileWriter file = new FileWriter("test.json")){
-            file.write(obj.toJSONString());
+        try (FileWriter file = new FileWriter("test.json")){ // output located in root of server dir 
+            file.append(obj.toString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("The JSON: " + obj);
+
     }
+
+
+
+    
+
+/*My output
+ * 
+ * 
+ * 
+ */
+
+
+
 }
 
 
