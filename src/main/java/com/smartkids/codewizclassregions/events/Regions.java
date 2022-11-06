@@ -3,7 +3,6 @@ package com.smartkids.codewizclassregions.events;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -33,8 +32,7 @@ public Regions(){}
     @SuppressWarnings("unchecked")
     public void onPlayerJoin(PlayerJoinEvent event){
         JSONObject obj = new JSONObject();
-        //JSONArray  arr = new JSONArray();
-        //Player plr = event.getPlayer(); I guess dont do this because it returns broken json
+        //JSONArray  arr = new JSONArray(); 
         
         obj.put("Town name", "test town");
         obj.put(event.getPlayer().getName(), event.getPlayer().getUniqueId());
@@ -47,19 +45,6 @@ public Regions(){}
         }
 
     }
-
-
-
-    
-
-/*My output
- * 
- * 
- * 
- */
-
-
-
 }
 
 
